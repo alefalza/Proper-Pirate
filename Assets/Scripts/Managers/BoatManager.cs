@@ -27,12 +27,16 @@ public class BoatManager : MonoBehaviour
 
         if (IsPiloting)
         {
+            Vector3 moveDirection = boat.EntryPoint.position - player.transform.position;
+            player.MoveTowards(moveDirection);
             player.transform.SetParent(boat.transform);
             CameraManager.Instance.SetMainCamera(boat.Camera);
         }
         else
         {
             player.transform.SetParent(null);
+            Vector3 moveDirection = boat.ExitPoint.position - player.transform.position;
+            player.MoveTowards(moveDirection);
             CameraManager.Instance.SetMainCamera(player.Camera);
         }
     }

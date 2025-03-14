@@ -10,11 +10,16 @@ public class BoatController : Controller
     [SerializeField] private float rudderTurnSpeed = 2f;
     [SerializeField] private float rudderMaxAngle = 30f;
     [SerializeField] private float thrustDecayRate = 1f;
+    [SerializeField] private Transform entryPoint;
+    [SerializeField] private Transform exitPoint;
 
     private Rigidbody _rigidbody;
     private float _currentThrustPower;
     private float _rudderRotationY;
     private float _waveHeight;
+
+    public Transform EntryPoint => entryPoint;
+    public Transform ExitPoint => exitPoint;
 
     private void Awake()
     {

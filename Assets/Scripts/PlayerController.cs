@@ -45,6 +45,11 @@ public class PlayerController : Controller
         _characterController.Move(_velocity * Time.fixedDeltaTime);
     }
 
+    public void MoveTowards(Vector3 direction)
+    {
+        _characterController.Move(direction);
+    }
+
     private void HandleGroundCheck()
     {
         IsGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer, QueryTriggerInteraction.Ignore);
