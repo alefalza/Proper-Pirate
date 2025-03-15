@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CurrentTime: 17.640747
+    - _CurrentTime: 35.37544
     - _Depth: 3.3
     - _Distance: 10
     - _FoamAmount: 3

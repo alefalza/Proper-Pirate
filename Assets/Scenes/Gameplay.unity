@@ -1955,6 +1955,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 754649288}
+  - component: {fileID: 754649290}
   - component: {fileID: 754649289}
   m_Layer: 0
   m_Name: PopupManager
@@ -1990,10 +1991,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1d3dd0f0ba5fb445bde3e6e92139631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popupFactory: {fileID: 754649290}
+--- !u!114 &754649290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754649287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24aa26b9076e334fbc616ec3637b2ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   parent: {fileID: 402467189}
-  popupPrefabs:
-  - key: InteractionPanel
-    value: {fileID: 8466743156108710, guid: 3b468cf76fffef640a3842d75e68a140, type: 3}
+  popupDefinitions:
+  - {fileID: 11400000, guid: a5d90b7f7a28b874ebab1c55955e9226, type: 2}
 --- !u!1 &761850141
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class PopupManager : MonoBehaviour
 {
-    [SerializeField] private RectTransform parent;
-    [SerializeField] private List<MyDictionaryEntry> popupPrefabs;
+    [SerializeField] private PopupFactory popupFactory;
 
     private Dictionary<string, Popup> popups = new Dictionary<string, Popup>();
 
@@ -30,9 +29,13 @@ public class PopupManager : MonoBehaviour
         }
         else
         {
-            Popup popupInstance = GetNewPopup(name);
-            popups.Add(name, popupInstance);
-            popupInstance.Show();
+            Popup popupInstance = popupFactory.CreatePopup(name);
+            
+            if (popupInstance != null)
+            {
+                popups.Add(name, popupInstance);
+                popupInstance.Show();
+            }
         }
     }
 
@@ -43,26 +46,4 @@ public class PopupManager : MonoBehaviour
             popup.Hide();
         }
     }
-
-    private Popup GetNewPopup(string name)
-    {
-        Popup popupPrefab = null;
-
-        foreach (var entry in popupPrefabs)
-        {
-            if (entry.key == name)
-            {
-                popupPrefab = entry.value;
-            }
-        }
-
-        return Instantiate(popupPrefab, parent);
-    }
-}
-
-[System.Serializable]
-public class MyDictionaryEntry
-{
-    public string key;
-    public Popup value;
 }

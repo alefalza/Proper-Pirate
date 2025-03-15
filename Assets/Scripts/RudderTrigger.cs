@@ -23,7 +23,7 @@ public class RudderTrigger : MonoBehaviour
 
             if (!_boatController.IsPiloting)
             {
-                PopupManager.Instance.Show("InteractionPanel");
+                PopupManager.Instance.Show("InteractionPopup");
             }
         }
     }
@@ -33,7 +33,7 @@ public class RudderTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _isPlayerNearby = false;
-            PopupManager.Instance.Hide("InteractionPanel");
+            PopupManager.Instance.Hide("InteractionPopup");
         }
     }
 
@@ -42,7 +42,7 @@ public class RudderTrigger : MonoBehaviour
         if ((_isPlayerNearby || _boatController.IsPiloting) && Input.GetKeyDown(KeyCode.E))
         {
             OnTrigger?.Invoke(_playerController);
-            PopupManager.Instance.Hide("InteractionPanel");
+            PopupManager.Instance.Hide("InteractionPopup");
         }
     }
 }

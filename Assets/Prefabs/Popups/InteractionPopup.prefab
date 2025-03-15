@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 532673717569408260}
   - component: {fileID: 8466743156108710}
   m_Layer: 5
-  m_Name: InteractionPanel
+  m_Name: InteractionPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
