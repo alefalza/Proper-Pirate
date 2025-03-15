@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class PlayerCameraController : MonoBehaviour
 {
     [SerializeField] private CameraSettings settings;
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform player;
 
     private Transform _transform;
     private Vector2 _currentMouseDelta;
@@ -49,7 +49,7 @@ public class CameraController : MonoBehaviour
     private void RotateController()
     {
         float eulerAngles = _currentMouseDelta.x * settings.mouseSensitivity.y;
-        target.Rotate(Vector3.up * eulerAngles);
+        player.Rotate(Vector3.up * eulerAngles);
     }
 
     private void DrawRay()

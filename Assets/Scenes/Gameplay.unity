@@ -596,7 +596,6 @@ Transform:
   - {fileID: 417643992}
   - {fileID: 1195912551}
   - {fileID: 2091052012}
-  - {fileID: 1931107389}
   - {fileID: 1892182982}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -635,11 +634,11 @@ MonoBehaviour:
   maxThrustPower: 5
   thrustDecayRate: 1
   rudder: {fileID: 2260141136703346392}
+  rudderTurnSpeed: 0.5
+  rudderMaxAngle: 30
   rudderTrigger: {fileID: 417643994}
   entryPoint: {fileID: 1195912551}
   exitPoint: {fileID: 2091052012}
-  rudderTurnSpeed: 0.5
-  rudderMaxAngle: 30
 --- !u!1 &209854991
 GameObject:
   m_ObjectHideFlags: 0
@@ -3091,7 +3090,7 @@ GameObject:
   - component: {fileID: 1592998222}
   - component: {fileID: 1592998221}
   m_Layer: 0
-  m_Name: FirstPersonCamera
+  m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3125,7 +3124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: e65e04a0956bbff4388144754cd0cd61, type: 2}
-  target: {fileID: 59060029}
+  player: {fileID: 59060029}
 --- !u!114 &1592998222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3847,11 +3846,11 @@ MonoBehaviour:
   maxThrustPower: 3
   thrustDecayRate: 1
   rudder: {fileID: 1876847578}
+  rudderTurnSpeed: 2
+  rudderMaxAngle: 30
   rudderTrigger: {fileID: 0}
   entryPoint: {fileID: 0}
   exitPoint: {fileID: 0}
-  rudderTurnSpeed: 2
-  rudderMaxAngle: 30
 --- !u!1 &1866908242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3990,6 +3989,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1892182982}
+  - component: {fileID: 1892182983}
   m_Layer: 0
   m_Name: CameraPivot
   m_TagString: Untagged
@@ -4008,10 +4008,25 @@ Transform:
   m_LocalPosition: {x: 0, y: 14.81, z: -11.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1931107389}
   m_Father: {fileID: 97149395}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1892182983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892182981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a3bffc4c35c544281db8c62804634e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: e65e04a0956bbff4388144754cd0cd61, type: 2}
+  boat: {fileID: 97149395}
 --- !u!1 &1912713088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4175,7 +4190,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1931107389}
   - component: {fileID: 1931107388}
-  - component: {fileID: 1931107387}
   - component: {fileID: 1931107386}
   m_Layer: 0
   m_Name: BoatCamera
@@ -4228,14 +4242,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1931107387
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931107385}
-  m_Enabled: 0
 --- !u!20 &1931107388
 Camera:
   m_ObjectHideFlags: 0
@@ -4295,11 +4301,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931107385}
   m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 28.3, z: -35}
+  m_LocalPosition: {x: 0, y: 13.489999, z: -23.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 97149395}
+  m_Father: {fileID: 1892182982}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!1 &1960296664
