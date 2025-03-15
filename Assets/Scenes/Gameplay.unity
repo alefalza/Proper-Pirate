@@ -597,6 +597,7 @@ Transform:
   - {fileID: 1195912551}
   - {fileID: 2091052012}
   - {fileID: 1931107389}
+  - {fileID: 1892182982}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -630,14 +631,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1931107388}
-  rudder: {fileID: 2260141136703346392}
   thrustPower: 3
   maxThrustPower: 5
-  rudderTurnSpeed: 0.5
-  rudderMaxAngle: 30
   thrustDecayRate: 1
+  rudder: {fileID: 2260141136703346392}
+  rudderTrigger: {fileID: 417643994}
   entryPoint: {fileID: 1195912551}
   exitPoint: {fileID: 2091052012}
+  rudderTurnSpeed: 0.5
+  rudderMaxAngle: 30
 --- !u!1 &209854991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,7 +1091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15136050e63c0f74b89179ab3faa7bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatController: {fileID: 97149398}
 --- !u!1 &446039940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,7 +1373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &548328184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,7 +1594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &660406400
 Transform:
   m_ObjectHideFlags: 0
@@ -2415,7 +2416,7 @@ GameObject:
   m_Layer: 0
   m_Name: EntryPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2427,7 +2428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195912550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 12.54, z: -9.157}
+  m_LocalPosition: {x: 0, y: 12.5, z: -9.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2684,7 +2685,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1272948238
 MonoBehaviour:
@@ -3842,14 +3843,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  rudder: {fileID: 1876847578}
   thrustPower: 2
   maxThrustPower: 3
-  rudderTurnSpeed: 2
-  rudderMaxAngle: 30
   thrustDecayRate: 1
+  rudder: {fileID: 1876847578}
+  rudderTrigger: {fileID: 0}
   entryPoint: {fileID: 0}
   exitPoint: {fileID: 0}
+  rudderTurnSpeed: 2
+  rudderMaxAngle: 30
 --- !u!1 &1866908242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3979,7 +3981,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876847577}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1877198896
+--- !u!1 &1892182981
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3987,41 +3989,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1877198898}
-  - component: {fileID: 1877198897}
+  - component: {fileID: 1892182982}
   m_Layer: 0
-  m_Name: BoatManager
+  m_Name: CameraPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1877198897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877198896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b419526cf33fec438ab66bca5720630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1877198898
+--- !u!4 &1892182982
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877198896}
+  m_GameObject: {fileID: 1892182981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 14.81, z: -11.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 97149395}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1912713088
 GameObject:
@@ -4479,7 +4468,7 @@ GameObject:
   m_Layer: 0
   m_Name: ExitPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4491,7 +4480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091052011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 12.54, z: -11.72}
+  m_LocalPosition: {x: 0, y: 13, z: -11.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4581,7 +4570,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2114179949
 MonoBehaviour:

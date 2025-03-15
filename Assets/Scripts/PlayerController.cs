@@ -9,7 +9,7 @@ public class PlayerController : Controller
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private float groundStickForce = -2f;
 
-    [Header("Movement")]
+    [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float jumpHeight = 1f;
@@ -45,9 +45,11 @@ public class PlayerController : Controller
         _characterController.Move(_velocity * Time.fixedDeltaTime);
     }
 
-    public void MoveTowards(Vector3 direction)
+    public void ForcePositionAndRotation(Transform target)
     {
-        _characterController.Move(direction);
+        _characterController.enabled = false;
+        transform.SetPositionAndRotation(target.position, target.rotation);
+        _characterController.enabled = true;
     }
 
     private void HandleGroundCheck()

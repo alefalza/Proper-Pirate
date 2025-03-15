@@ -3,13 +3,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class BoatController : Controller
 {
-    [Header("Boat Settings")]
-    [SerializeField] private Transform rudder;
+    [Header("Thrust Settings")]
     [SerializeField] private float thrustPower = 1f;
     [SerializeField] private float maxThrustPower = 3f;
+    [SerializeField] private float thrustDecayRate = 1f;
+    
+    [Header("Rudder Settings")]
+    [SerializeField] private Transform rudder;
     [SerializeField] private float rudderTurnSpeed = 2f;
     [SerializeField] private float rudderMaxAngle = 30f;
-    [SerializeField] private float thrustDecayRate = 1f;
+    [SerializeField] private RudderTrigger rudderTrigger;
     [SerializeField] private Transform entryPoint;
     [SerializeField] private Transform exitPoint;
 
@@ -18,12 +21,12 @@ public class BoatController : Controller
     private float _rudderRotationY;
     private float _waveHeight;
 
-    public Transform EntryPoint => entryPoint;
-    public Transform ExitPoint => exitPoint;
+    public bool IsPiloting { get; private set; }
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        rudderTrigger.OnTrigger += OnRudderTriggered;
     }
 
     public override void HandleInputs()
@@ -71,5 +74,31 @@ public class BoatController : Controller
             Vector3 thrustForce = rudder.forward * _currentThrustPower;
             _rigidbody.AddForceAtPosition(thrustForce, rudder.position);
         }
+    }
+
+    private void OnRudderTriggered(PlayerController player)
+    {
+        IsPiloting = !IsPiloting;
+
+        if (IsPiloting)
+        {
+            player.transform.SetParent(entryPoint);
+            player.ForcePositionAndRotation(entryPoint);
+            CameraManager.Instance.SetMainCamera(mainCamera);
+        }
+        else
+        {
+            player.transform.SetParent(null);
+            player.ForcePositionAndRotation(exitPoint);
+            CameraManager.Instance.SetMainCamera(player.Camera);
+        }
+
+        IController controller = IsPiloting ? this : player;
+        ControllerManager.Instance.SetController(controller);
+    }
+
+    private void OnDestroy()
+    {
+        rudderTrigger.OnTrigger -= OnRudderTriggered;
     }
 }

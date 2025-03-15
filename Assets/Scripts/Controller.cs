@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour, IController
 {
-    [SerializeField] private Camera mainCamera;
+    [SerializeField] protected Camera mainCamera;
 
     public Camera Camera => mainCamera;
 
