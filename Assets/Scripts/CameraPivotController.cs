@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class BoatCameraPivotController : MonoBehaviour
+public class CameraPivotController : MonoBehaviour
 {
     [SerializeField] private CameraSettings settings;
-    [SerializeField] private Transform boat;
 
     private float yRotation;
 

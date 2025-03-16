@@ -6,10 +6,12 @@ public class PopupFactory : MonoBehaviour
     [SerializeField] private RectTransform parent;
     [SerializeField] private List<PopupDefinition> popupDefinitions;
 
-    private Dictionary<string, Popup> popupDictionary = new Dictionary<string, Popup>();
+    private Dictionary<string, Popup> popupDictionary;
 
     private void Awake()
     {
+        popupDictionary = new Dictionary<string, Popup>();
+
         foreach (var definition in popupDefinitions)
         {
             if (!popupDictionary.ContainsKey(definition.popupName))

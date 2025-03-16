@@ -19,7 +19,10 @@ public class WaveManager : MonoBehaviour
         {
             Destroy(this);
         }
+    }
 
+    private void Start()
+    {
         _waveData = new WaveData()
         {
             direction = material.GetVector("_Direction"),

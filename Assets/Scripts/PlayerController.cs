@@ -13,6 +13,7 @@ public class PlayerController : Controller
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float jumpHeight = 1f;
+    [SerializeField] private bool airControl;
 
     private CharacterController _characterController;
     private Vector3 _velocity;
@@ -64,6 +65,8 @@ public class PlayerController : Controller
 
     private void HandleMovement(Vector2 keyboardInput)
     {
+        if (!IsGrounded && !airControl) return;
+
         Vector3 moveDirection = (transform.forward * keyboardInput.y + transform.right * keyboardInput.x) * movementSpeed;
         _velocity.x = moveDirection.x;
         _velocity.z = moveDirection.z;

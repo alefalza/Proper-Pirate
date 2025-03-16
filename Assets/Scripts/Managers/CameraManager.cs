@@ -4,9 +4,8 @@ public class CameraManager : MonoBehaviour
 {
     [SerializeField] private Camera initialCamera;
 
-    private Camera _currentCamera;
-
     public static CameraManager Instance { get; private set; }
+    public Camera CurrentCamera { get; private set; }
 
     private void Awake()
     {
@@ -22,13 +21,13 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        _currentCamera = initialCamera;
+        CurrentCamera = initialCamera;
     }
 
     public void SetMainCamera(Camera camera)
     {
-        _currentCamera.gameObject.SetActive(false);
+        CurrentCamera.gameObject.SetActive(false);
         camera.gameObject.SetActive(true);
-        _currentCamera = camera;
+        CurrentCamera = camera;
     }
 }

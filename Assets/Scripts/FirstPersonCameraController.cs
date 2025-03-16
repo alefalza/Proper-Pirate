@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerCameraController : MonoBehaviour
+public class FirstPersonCameraController : MonoBehaviour
 {
     [SerializeField] private CameraSettings settings;
     [SerializeField] private Transform player;
